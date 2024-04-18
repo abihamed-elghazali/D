@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ثانوية أبي حامد الغزالي</title>
+  
+<style>
+  /* Reset CSS */
+  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+    background-image: url('photo/wal.jpg');
+    background-size: cover; /* لتكبير الصورة لتملأ الشاشة بالكامل */
+    background-repeat: no-repeat; /* لمنع تكرار الصورة */
+
+
+}
+
+/* Top Bar Styles */
+.top-bar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px; 
+  
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar .logo {
+  font-size: 1.5em;
+}
+
+.nav-toggle {
+  position: relative;
+}
+
+.square-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px; /* زيادة الهامش للزر */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 0; /* تحديد المسافة من اليمين */
+}
+
+.square-button:hover {
+  background-color: #0056b3;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 120%;
+  right: 0%;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; 
+  direction: rtl;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+.display-4{
+  margin-top: 20px
+}
+.show {
+  display: block;
+}
+
+/* School Image Styles */
+.school-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.card-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px rgba(10, 10, 10, 0.7);
+  margin-bottom: 20px;
+}
+
+.card-description {
+  padding: 20px;
+  text-align: center;
+  direction: rtl ;
+}
+
+/* Spacer Styles */
+.spacer {
+  height: 20px; 
+}
+
+/* Main Content Styles */
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+  text-align: center;
+
+}
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* تقسيم العناصر إلى زوجين في كل سطر */
+  gap: 20px; /* هامش بين العناصر */
+}
+
+
+.card-link {
+  text-decoration: none; /* إزالة تزيين الرابط */
+  color: inherit; /* استخدام لون النص نفسه */
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 17px;
+  box-shadow: 0 5px 20px rgba(10, 10, 10, 0.7);
+  margin-bottom: 20px;
+  width: calc(110% - 10px); /* تحديد عرض البطاقة بنسبة 50% من عرض السطر مع هامش بينهم */
+   
+}
+@media screen and (min-width: 768px) {
+  .grid-row {
+    display: flex;
+    justify-content: center; /* توسيط البطاقات على شاشة الكمبيوتر */
+  }
+.card-info{
+    width: 50%; /* تحديد عرض البطاقة في شاشة الكمبيوتر */
+    margin: 0 auto; /* توسيط البطاقة 
+    */
+
+  margin-bottom: 50px; /* إضافة مسافة بين البطاقة والمحتوى أسفلها */
+
+
+  }
+  }
+
+  .school-image {
+    max-width: 100%; /* تحديد أقصى عرض للصورة بناءً على عرض البطاقة */
+    height: auto; /* للحفاظ على نسبة العرض إلى الارتفاع */
+  }
+
+  .card-description {
+    font-size: 14px; /* تحديد حجم الخط للنص في شاشة الكمبيوتر */
+  }
+}
+ 
+  .cards {
+    width: calc(50% - 20px); /* تحديد عرض البطاقات على شاشات الكمبيوتر */
+    margin-right: 20px; /* إضافة هامش بين البطاقات */
+  }
+
+  .cards:last-child {
+    margin-right: 0; /* لإزالة الهامش الأيمن للبطاقة الأخيرة وتجنب التلاصق */
+  }
+}
+
+.cards p {
+  padding: 20px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover .cards {
+  transform: translateY(-5px);
+}
+
+
+
+
+.exam-table-frame {
+  border: 7px solid black;
+  display: inline-block;
+  padding: 10px;
+}
+
+.exam-table-title {
+  color: black;
+}
+
+
+/* Footer Styles */
+.footer {
+  background-color: #d8d8d8;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.footer-text {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+.exam-table-container {
+  text-align: center; /* توسيط الجدول في الصفحة */
+}
+
+.exam-table-image {
+  max-width: 120px; /* جعل الصورة تأخذ عرضًا أقصى مناسبًا */
+  height: 70%; /* تغيير الارتفاع تلقائيًا للحفاظ على نسبة العرض إلى الارتفاع */
+}
+.rectangle-container {
+  background-color: #b9b9b9;
+  padding: 9px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-container {
+  margin-top: 20px;
+}
+
+.text-container p {
+  margin-bottom: 20px;
+}
+
+<center>
+/* تعديل حجم الجدول في أجهزة الكمبيوتر الكبيرة */
+@media screen and (min-width: 720px) {
+  .exam-table-container {
+ align-self: center;
+    max-width: 100%; /* يمكن تعديل هذا الحجم حسب الحاجة */
+    
+  }
+}
+</center>
+</style>
+</head>
+<body>
+ <header class="top-bar">
+  <div class="container">
+    <div class="logo">ثانوية أبي حامد الغزالي</div>
+    <div class="nav-toggle">
+      <button id="toggleBtn" class="square-button">الخيارات</button>
+      <div id="dropdownMenu" class="dropdown-content">
+        <a href="#">الرئيسية</a>
+        <a href="#">الأخبار</a>
+        <a href="#">عن المدرسة</a>
+        <a href="#">اتصل بنا</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="card-info">
+    <img src="photo/school_image.jpg" alt="ثانوية أبي حامد الغزالي" class="school-image">
+    <div class="card-description">
+      <p>ثانوية أبي حامد الغزالي هي مؤسسة تعليمية متميزة تهدف إلى تقديم أفضل خدمة تعليمية للطلاب.</p>
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="cards">
+      <a href="syte/news.html" class="card-link">
+        <div class="card-description">
+          <p>اضغط هنا للذهاب إلى صفحة الأخبار</p>
+        </div>
+      </a>
+    </div>
+    <div class="cards">
+      <a href="syte/social.html" class="card-link">
+        <div class="card-description">
+          <p>
+            موقع به جميع وسائل التواصل
+          </p>
+        </div>
+      </a>
+    </div>
+    <div class="cards">
+      <a href="https://maps.app.goo.gl/1owVCanFvKtkR6nJ8" class="card-link">
+        <div class="card-description">
+          <p>
+ موقع الثانوية  google map
+          </p>
+        </div>
+      </a>
+    </div>
+    <div class="cards">
+      <a href="syte/exam.html" class="card-link">
+        <div class="card-description">
+          <p>
+      الفروض والاختبارات مع التصحيح  
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="grid-row">
+    <div class="rectangle-container">
+    <div class="exam-table-container">
+      <div class="exam-table-frame">
+        <h2 class="exam-table-title">جدول اختبارت 1</h2>
+        <img src="photo/1exam.jpg" alt="جدول الاختبارات" class="exam-table-image">
+      </div>
+    </div>
+    </div>
+    <div class="rectangle-container">
+    <div class="exam-table-container">
+      <div class="exam-table-frame">
+        <h2 class="exam-table-title">جدول اختبارات 2</h2>
+        <img src="photo/2exam.jpg" alt="جدول الاختبارات" class="exam-table-image">
+      </div>
+    </div>
+ 
+  </div>
+</div>
+<div style="height: 100px;"></div>
+<div class="text-container">
+        <div class="container">
+            <h1 class="display-4">أبو حامد الغزالي</h1>
+        </div>
+        </div>
+    </header>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <img src="photo/al-ghazali.jpg" alt="صورة لأبو حامد الغزالي" class="img-fluid rounded shadow">
+                <p class="mt-3">
+                  <div style="height: 30px;"></div>
+
+                  أبو حامد محمد بن محمد الغزالي الطوسي، المعروف بالإمام الغزالي، هو شخصية علمية وفيلسوف إسلامي بارز في العصور الوسطى. وُلد في طوس (الطائفة الغزالية، في خراسان، إيران الحالية) حوالي عام 1058 ميلادي وتوفي في بغداد عام 1111 ميلادي. يُعتبر الغزالي من بين أبرز العلماء والفلاسفة في التاريخ الإسلامي وأحد أبرز شخصيات الفكر الإنساني على مر العصور.
+                </p>
+                <p class="mt-3">
+                  تميز الغزالي بتعدد مجالات تأثيره، حيث كان فقيهاً، وفيلسوفاً، ومفسراً، ومعلماً، وكاتباً، وصوفياً. تميزت أعماله بالتنوع والشمولية، حيث تطرق في كتاباته إلى مجموعة واسعة من المواضيع بما في ذلك اللاهوت، والفلسفة، والقانون، والأخلاق، والتصوف.
+                </p>
+                  <p class="mt-3">
+                    أحد أهم إسهامات الغزالي كانت في مجال التصوف، حيث قام بتصحيح بعض المفاهيم الخاطئة حول التصوف والتي تشوبها بعض التطرفات والابتداعات غير الإسلامية. وقدم منهجاً متوسطاً في التصوف يؤكد على الأهمية القصوى للتزام الشريعة الإسلامية والتوازن بين العبادة والعمل في الحياة اليومية.
+                  </p>
+                 <p class="mt-3">
+                   في الفلسفة، تنوعت أعمال الغزالي بين التأليف في الفلسفة الأصولية ونقده لبعض المذاهب الفلسفية اليونانية. وأشهر أعماله في هذا المجال هو "المنقذ من الضلال"، حيث قام فيه بنقد وإصلاح الأفكار الفلسفية واللاهوتية التي كانت تتداول في زمانه.
+                 </p>
+                 <p class="mt-3">
+                   بالإضافة إلى ذلك، كان الغزالي مؤرخاً ومتكلماً بارعاً، حيث ساهم في تطوير المنهج التاريخي والمنطقي. وقدم تحليلات عميقة لمفاهيم العلم والمعرفة، وأثرى المكتبة الإسلامية بأعماله الفكرية والعلمية المتنوعة.
+                 </p>
+                <p class="mt-3">
+                  باختصار، يمكن اعتبار الإمام الغزالي شخصية فكرية وروحية استثنائية، أثرت بشكل عميق في الفكر الإسلامي والإنسانية بشكل عام، ولا تزال أعماله مصدر إلهام للعديد من الباحثين والمفكرين في العالم اليوم.
+                </p>
+                                              <div style="height: 100px;"></div>
+                                                                  
+            </div>
+        </div>
+        </div>
+    </div>
+<footer class="footer">
+  <div class="footer-content">
+    <p class="footer-text">جميع الحقوق محفوظة &copy; 2024 - mellouk dhiya (2TM)</p>
+  </div>
+</footer>
+
+<script>
+function loadMoreContent() {
+  // قم بتحميل المزيد من المحتوى هنا، مثلاً بإضافة بطاقات جديدة أو جلبها من قاعدة البيانات
+}
+window.addEventListener('scroll', function() {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    loadMoreContent();
+  }
+});
+
+document.getElementById("toggleBtn").addEventListener("click", function() {
+  document.getElementById("dropdownMenu").classList.toggle("show");
+});
+
+window.onclick = function(event) {
+  if (!event.target.matches('.square-button')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
